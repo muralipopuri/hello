@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class App {
 	public static void main(String[] args) {
-		System.out.println("Hello Welcome back! now" + new Date());
+		System.out.println("Hello Welcome back! now-" + new Date());
 		String dbUrl = System.getenv("DB_URL");
 		System.out.println("dbUrl: " + dbUrl);
 		String dbUser = System.getenv("DB_USER");
