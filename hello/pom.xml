@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.citi</groupId>
+  <groupId>com</groupId>
   <artifactId>hello</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -22,4 +22,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+   <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <archive>
+                    <index>true</index>
+                    <manifest>
+                        <mainClass>com.hello.App</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+     </plugins>
+     </build>
 </project>
