@@ -17,6 +17,7 @@ public class App {
 		String dbPass = System.getenv("DB_PASS");
 		System.out.println("dbPass: " + dbPass);
 		System.out.println(">>>>>>"+System.getenv("hhjhh"));
+		System.out.println(">>>>>>"+System.getenv("dbpas"));
 		
 	}
 }
