@@ -110,7 +110,7 @@ pipeline {
 						sh "mvn clean ${goal} -B -pl ${affectedList} -am -DskipTests -Pbuild -T 5"
 					} else {
 						bat "mvn clean ${goal} -B -pl ${affectedList} -am -DskipTests -Pbuild -T 5"	
-					}//
+					}
 				}
 
 			}
