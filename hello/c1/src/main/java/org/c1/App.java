@@ -1,7 +1,7 @@
 package org.c1;
 
 /**
- * Hello world!1
+ * Hello world!2
  *
  */
 public class App 
