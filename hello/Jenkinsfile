@@ -22,7 +22,7 @@ pipeline {
 				script {
 					def changes = []
 					
-					if(env.CHANGE_ID) { //check if triggered via Pull Request
+					//if(env.CHANGE_ID) { //check if triggered via Pull Request
 						echo "Pull Request Trigger"
 						//get changes via git diff so we can know which module should be built
 						if (isUnix()) {
@@ -30,10 +30,12 @@ pipeline {
 						}
 						else {
 							changes = bat(returnStdout: true, script: "git --no-pager diff origin/${CHANGE_TARGET} --name-only").trim().split()
+							echo "User Trigger ${changes}"
 						}						
 						//use compile goal instead of package if the trigger came from Pull Request. we dont want to package our module for every pull request
 						goal = "compile"
-					} else if(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').size() > 0) { //check if triggered via User 'Build Now'
+					//} else 
+					if(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause').size() > 0) { //check if triggered via User 'Build Now'
 						echo "User Trigger"
 						buildAll = true
 					} else { //defaults to Push Trigger
