@@ -43,11 +43,7 @@ for (int i = 0; i < changeLogSets.size(); i++) {
             def file = files[k]
             echo "display---->>>  ${file.editType.name} ${file.path}"
             changes.add(file.path)
-        }
-    }
-}
- echo "display1111---->>>  ${changes}"
-			changes.each {c -> 
+            changes.each {c -> 
 						if(c.contains("common") || c == "pom.xml") { //if changes includes parent pom.xml and common module, we should build all modules
 							affectedModules = []
 							buildAll = true
@@ -55,10 +51,14 @@ for (int i = 0; i < changeLogSets.size(); i++) {
 						}else {
 							if(c.indexOf("/") > 1) { //filter all affected module. indexOf("/") means the file is inside a subfolder (module)
 								affectedModules.add(c.substring(0,c.indexOf("/")))
+								 echo "display---->>>  ${affectedModules}"
 							}
-							
 						}
 					}
+        }
+    }
+}
+ 
 
 						}						
 						//use compile goal instead of package if the trigger came from Pull Request. we dont want to package our module for every pull request
